@@ -85,6 +85,11 @@ class AuthControllerTest extends ApiTestSupport {
 
     @Test
     void initializerIsIdempotentAndHashesPassword() {
+        initializer.run(new org.springframework.boot.DefaultApplicationArguments());
+        initializer.run(new org.springframework.boot.DefaultApplicationArguments());
+        assertThat(users.count()).isEqualTo(1);
+        assertThat(statuses.count()).isEqualTo(5);
+        assertThat(labels.count()).isEqualTo(2);
         assertThat(encoder.matches("qwerty", admin.getPassword())).isTrue();
         assertThat(admin.getPassword()).isNotEqualTo("qwerty");
         assertThat(statuses.findAll())

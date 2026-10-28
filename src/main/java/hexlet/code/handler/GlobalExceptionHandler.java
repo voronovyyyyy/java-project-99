@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -67,6 +68,14 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> unexpected(Exception exception) {
+        if (exception instanceof ErrorResponse response
+                && !response.getStatusCode().is5xxServerError()) {
+            return ResponseEntity.status(response.getStatusCode())
+                    .body(
+                            new ApiError(
+                                    response.getStatusCode().value(),
+                                    response.getBody().getTitle()));
+        }
         LOG.error("Unexpected request failure", exception);
         Sentry.captureException(exception);
         return error(HttpStatus.INTERNAL_SERVER_ERROR, "Внутренняя ошибка сервера");

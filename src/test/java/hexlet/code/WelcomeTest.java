@@ -57,4 +57,9 @@ class WelcomeTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.status").value("UP"));
     }
+
+    @Test
+    void missingStaticResourceReturns404() throws Exception {
+        mvc.perform(get("/favicon.ico")).andExpect(status().isNotFound());
+    }
 }

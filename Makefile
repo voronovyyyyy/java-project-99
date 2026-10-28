@@ -24,7 +24,7 @@ lint-fix:
 	$(GRADLE) spotlessApply
 
 start:
-	java -jar build/libs/app.jar
+	$(GRADLE) bootRun
 
 dev:
 	$(GRADLE) bootRun

@@ -37,7 +37,7 @@ abstract class ApiTestSupport {
     @Autowired protected TaskRepository tasks;
     @Autowired protected PasswordEncoder encoder;
     @Autowired protected TokenService tokens;
-    @Autowired private DataInitializer initializer;
+    @Autowired protected DataInitializer initializer;
     protected User admin;
     protected String authorization;
 

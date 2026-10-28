@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: ${JDBC_DATABASE_URL}
+    username: ${DATABASE_USERNAME:}
+    password: ${DATABASE_PASSWORD:}
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 1
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        default_schema: ${DATABASE_SCHEMA:task_manager}
+        hbm2ddl:
+          create_namespaces: true
+jwt:
+  secret: ${JWT_SECRET}

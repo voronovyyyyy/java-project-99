@@ -1,0 +1,12 @@
+{
+  "name": "hexlet-task-manager",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-frontend.mjs"
+  },
+  "dependencies": {
+    "@hexlet/java-task-manager-frontend": "1.0.26"
+  }
+}

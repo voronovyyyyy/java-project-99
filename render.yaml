@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: task-manager-java-99
+    runtime: docker
+    plan: free
+    region: frankfurt
+    repo: https://github.com/voronovyyyyy/java-project-99
+    branch: main
+    autoDeployTrigger: checksPass
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: production
+      - key: JDBC_DATABASE_URL
+        fromDatabase:
+          name: page-analyzer-java-72-db
+          property: connectionString
+      - key: DATABASE_SCHEMA
+        value: task_manager
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SENTRY_AUTH_TOKEN
+        sync: false

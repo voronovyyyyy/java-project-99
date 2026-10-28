@@ -1,0 +1,10 @@
+/.gradle/
+/build/
+/node_modules/
+/.tools/
+/.idea/
+/src/main/resources/static/
+/.env
+*.log
+*.iml
+.DS_Store

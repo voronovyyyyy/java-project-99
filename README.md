@@ -3,6 +3,10 @@
 [![hexlet-check](https://github.com/voronovyyyyy/java-project-99/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/voronovyyyyy/java-project-99/actions/workflows/hexlet-check.yml)
 [![Java CI](https://github.com/voronovyyyyy/java-project-99/actions/workflows/ci.yml/badge.svg)](https://github.com/voronovyyyyy/java-project-99/actions/workflows/ci.yml)
 
+[Открыть приложение](https://task-manager-java-99.onrender.com)
+· [Swagger API](https://task-manager-java-99.onrender.com/swagger-ui/index.html)
+· [Ошибки в Bugsink](https://voronovtasks.bugsink.com/issues/1/)
+
 Менеджер задач на Spring Boot 3 с REST API, JWT-аутентификацией и интерфейсом React Admin.
 Позволяет управлять пользователями, задачами, статусами и метками, назначать исполнителей
 и фильтровать задачи. Данные хранятся через Spring Data JPA в H2 или PostgreSQL.

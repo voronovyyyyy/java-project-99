@@ -89,6 +89,7 @@ class AuthControllerTest extends ApiTestSupport {
         initializer.run(new org.springframework.boot.DefaultApplicationArguments());
         assertThat(users.count()).isEqualTo(1);
         assertThat(statuses.count()).isEqualTo(5);
+        assertThat(statuses.findBySlug("to_review").orElseThrow().getName()).isEqualTo("ToReview");
         assertThat(labels.count()).isEqualTo(2);
         assertThat(encoder.matches("qwerty", admin.getPassword())).isTrue();
         assertThat(admin.getPassword()).isNotEqualTo("qwerty");

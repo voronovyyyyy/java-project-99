@@ -36,9 +36,9 @@ public class DataInitializer implements ApplicationRunner {
         }
         var defaults = new LinkedHashMap<String, String>();
         defaults.put("draft", "Draft");
-        defaults.put("to_review", "To Review");
-        defaults.put("to_be_fixed", "To Be Fixed");
-        defaults.put("to_publish", "To Publish");
+        defaults.put("to_review", "ToReview");
+        defaults.put("to_be_fixed", "ToBeFixed");
+        defaults.put("to_publish", "ToPublish");
         defaults.put("published", "Published");
         defaults.forEach(
                 (slug, name) -> {
